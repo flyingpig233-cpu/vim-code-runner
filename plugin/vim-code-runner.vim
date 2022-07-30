@@ -146,7 +146,7 @@ endfunction
 function! s:RunCode()
     let s:cmd = expand('%<')
     if !has('win32') && !(s:cmd =~ '/')
-        let s:cmd = './' . s:cmd
+        execute 'Floaterm --autoclose=0 ' . s:cmd
     endif
     if exists(":AsyncRun")
         execute 'copen'
